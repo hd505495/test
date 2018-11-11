@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <br><br><br><br>
+    <center>
+
+        <h1><big>	<div class="rainbow">Chess Game Simulator</div>	</big></h1>
+
+    </center>
+    <hr>
+    <br><br>
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Pacifico);
+    @import url('https://fonts.googleapis.com/css?family=Anton');
+	html {
+    min-height: 100%;
+    }
+    h1 {
+	padding-top: -10px;
+	margin-top: -75px;
+	height: 80px;
+        background: -webkit-linear-gradient(left, #000000, #ffffff);
+        background: -o-linear-gradient(right, #000000, #ffffff);
+        background: -moz-linear-gradient(right, #000000, #ffffff);
+        background: linear-gradient(to right, #000000, #ffffff);
+        background-color: #000000;
+    }
+    body {
+        background: -webkit-linear-gradient(left, #6f974e, #e4eedd);
+        background: -o-linear-gradient(right, #6f974e, #e4eedd);
+        background: -moz-linear-gradient(right, #6f974e, #e4eedd);
+        background: linear-gradient(to right, #6f974e, #e4eedd);
+        background-color: #6f974e;
+    }
+	
+	input {
+	border-radius: 5px;
+	margin-right: 10px;
+	cursor: pointer;
+	}
+
+	form {
+	border-left: 20px lightblue;
+	border-left-color: #FFFFFF;
+	/*border-color: #89b168;*/
+	background-color: lightblue;
+	color: lightblue;
+	}
+	
+    caption {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 20px;
+    }
+	
+	#container {
+	overflow: auto;
+	}
+	
+    #board1 {
+    position: relative;
+	left: 200px;
+	float: left;
+	margin: 0 0 50px 0;
+    }
+
+    #chatbox {
+	position: relative;
+	right: 175px;
+	float: right;
+	margin: 100px 25px 0 25px;
+    }
+
+	.rcorners1 {
+	border-radius: 25px; /*
+    border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	border-top-right-radius: 200px;
+	border-bottom-right-radius: 200px;*/
+    background: #6f974e;
+    padding: 20px; 
+    width: 395px;
+    height: 22px; 
+	}
+	
+    .rainbow {
+
+        /* Font options */
+      font-family: 'Pacifico', cursive;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+       /* Chrome, Safari, Opera */
+      -webkit-animation: rainbow 3s infinite;
+
+      /* Internet Explorer */
+      -ms-animation: rainbow 3s infinite;
+
+      /* Standar Syntax */
+      animation: rainbow 3s infinite;
+    }
+
+    /* Chrome, Safari, Opera */
+    @-webkit-keyframes rainbow{
+        0%{color: purple;}
+        15%{color: red;}
+	30%{color: orange;}
+	45%{color: yellow;}
+	60%{color: green;}
+	80%{color: blue;}
+	100%{color: purple;}
+    }
+
+    /* Internet Explorer */
+    @-ms-keyframes rainbow{
+        0%{color: purple;}
+        15%{color: red;}
+	30%{color: orange;}
+	45%{color: yellow;}
+	60%{color: green;}
+	80%{color: blue;}
+	100%{color: purple;}
+    }
+
+    /* Standar Syntax */
+    @keyframes rainbow{
+        0%{color: purple;}
+        15%{color: red;}
+	30%{color: orange;}
+	45%{color: yellow;}
+	60%{color: green;}
+	80%{color: blue;}
+	100%{color: purple;}
+    }
+
+    </style>
+    <link rel="stylesheet" href="chessboard.js/css/chessboard-0.3.0.min.css">
+	<!-- IMPORT JQUERY -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<!-- IMPORT CHESSBOARD.JS -->
+    <script src="chessboard.js/js/chessboard-0.3.0.min.js"></script>
+	<!-- CHESS.JS FROM CDN CLOUDFLARE -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js"></script>
+	<!-- 'SWEET ALERT' FROM CDN UNPKG -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </head>
+  <body>
+
+<div id="container">
+    <center>
+    <div id="board1" style="width: 600px"></div>
+    </center>
+
+    <!-- simple_chess.js -->
+    <script src=simple_chess.js></script>
+
+	<div id="chatbox">
+
+	<table align="right">
+		<caption align="top">Chatbox</caption>
+
+		<tr><td>
+			
+			<form>
+				<select id="chatHistory" size="25" style="width:100%">
+			<!-- Where messages will go -->
+				</select>
+			</form>
+		</td></tr>
+		<tr><td>
+		<div class="rcorners1">
+		  <input type="text" id="chatInput" size=50 style="cursor:text" name="chatInput"
+		  onkeydown = "if (event.keyCode == 13) document.getElementById('chatSubmit').click()">
+		  <input type="button" id="chatSubmit" onclick=sendMessage() value="Send">
+		  </div>
+		</td></tr>
+	</table>
+
+		</div>
+	</div>
+  </body>
+</html>
